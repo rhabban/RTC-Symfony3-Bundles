@@ -1,0 +1,30 @@
+cch_gescom_index:
+    path:     /
+    defaults: { _controller: CCHGescomBundle:Default:index }
+
+cch_gescom_product_index:
+    path:     /product/
+    defaults: { _controller: CCHGescomBundle:Product:index }
+
+cch_gescom_product_view:
+    path:     /product/{id}
+    defaults: { _controller: CCHGescomBundle:Product:View }
+    requirements:
+            id: \d+
+
+cch_gescom_product_add:
+    path:     /product/add
+    defaults: { _controller: CCHGescomBundle:Product:Add }
+
+cch_gescom_product_edit:
+    path:     /product/{id}/edit
+    defaults: { _controller: CCHGescomBundle:Product:Edit }
+    requirements:
+            id: \d+
+
+cch_gescom_product_delete:
+    path:     /product/{id}/delete
+    defaults: { _controller: CCHGescomBundle:Product:Delete }
+    requirements:
+            id: \d+
+

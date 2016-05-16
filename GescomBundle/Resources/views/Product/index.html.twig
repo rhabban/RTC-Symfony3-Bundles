@@ -1,0 +1,49 @@
+{% extends "CCHGescomBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block cchgescom_body %}
+
+    <h2>Liste des produits</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Quantité</th>
+                <th>Prix HT</th>
+                <th>Dernière mise à jour</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in listProducts %}
+            <tr>
+
+                    <th scope="row">{{ product.id }}</th>
+                    <td>{{ product.reference }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.priceWithoutTaxes }}</td>
+                    <td>{{ product.updateDate|date('d/m/Y') }} - {{ product.updateDate|date('h:s') }}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('cch_gescom_product_edit', {'id': product.id}) }}">Editer</a></li>
+                                <li><a href="{{ path('cch_gescom_product_delete', {'id': product.id}) }}">Supprimer</a></li>
+                            </ul>
+                        </div>
+                    </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

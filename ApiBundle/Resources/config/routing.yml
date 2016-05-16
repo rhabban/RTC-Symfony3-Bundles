@@ -1,0 +1,4 @@
+cch_api_index:
+    path:     /{reference}
+    defaults: { _controller: CCHApiBundle:Default:Index, reference:null }
+
